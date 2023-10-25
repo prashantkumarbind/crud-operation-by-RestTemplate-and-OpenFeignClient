@@ -1,0 +1,15 @@
+package com.pksoftware.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
+@Controller
+public class ManagementControler {
+
+		@GetMapping("/testing/{name}")
+		public String check(@PathVariable String name) {
+			  return "YOUR INPUT NAME IS THE ::"+name;
+		}
+}

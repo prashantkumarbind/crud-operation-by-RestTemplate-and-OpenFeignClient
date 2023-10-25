@@ -1,0 +1,8 @@
+package com.pksoftware.service;
+
+import com.pksoftware.entity.FiveStarHotel;
+
+public interface ManagementService {
+
+		FiveStarHotel insertFiveStarHotelEmployeeData(FiveStarHotel fiveStarHotel);
+}

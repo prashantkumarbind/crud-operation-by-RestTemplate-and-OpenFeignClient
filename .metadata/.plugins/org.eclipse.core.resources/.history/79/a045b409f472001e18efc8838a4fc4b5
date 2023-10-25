@@ -1,0 +1,10 @@
+package com.pksoftware.feignclientikbalhotelservice;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+
+@FeignClient(url="http://localhost:")
+public interface IkbalHotelService {
+
+		
+}

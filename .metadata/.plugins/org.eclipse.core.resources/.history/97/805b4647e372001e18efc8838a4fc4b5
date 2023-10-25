@@ -1,0 +1,44 @@
+package com.pksoftware.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pksoftware.entity.FiveStarHotel;
+import com.pksoftware.service.ManagementService;
+
+
+@RestController
+public class ManagementControler {
+
+		@Autowired
+		ManagementService managementService;
+	
+		@GetMapping("/testing/{name}")
+		public String check(@PathVariable String name) {
+			  return "YOUR INPUT NAME IS THE ::"+name;
+		}
+		
+		@PostMapping("/staremployee")
+		public FiveStarHotel insertFiveStarHotelEmployeeData(@RequestBody FiveStarHotel starHotel) {
+			   FiveStarHotel hotel = managementService.insertFiveStarHotelEmployeeData(starHotel);
+			   return hotel;
+		}
+		
+		@PutMapping("/staremployee")
+		public FiveStarHotel updateFiveStarHotelEmployeeData(@RequestBody FiveStarHotel starHotel) {
+			   FiveStarHotel hotel = managementService.updateFiveStarHotelEmployeeData(starHotel);
+			   return hotel;
+		}
+		
+		@DeleteMapping("/staremployee")
+		public FiveStarHotel deleteFiveStarHotelEmployeeData(@RequestBody FiveStarHotel starHotel) {
+			   
+		}
+}

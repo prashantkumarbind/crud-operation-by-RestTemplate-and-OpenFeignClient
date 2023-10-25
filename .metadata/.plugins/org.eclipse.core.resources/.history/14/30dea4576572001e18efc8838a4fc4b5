@@ -1,0 +1,30 @@
+package com.pksoftware.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pksoftware.entity.Employee;
+import com.pksoftware.service.EmployeeService;
+
+@RestController
+public class EmployeeController {
+
+	
+		@Autowired
+		EmployeeService employeeService;
+		
+		@GetMapping("/testing/{name}")
+		public String check(@PathVariable String name) {
+			   return "\n Your Input Name is the ::*********************************"+name;
+		}
+		
+		
+		@GetMapping("/employee")
+		public Employee insert(@RequestBody Employee employee) {
+			   Employee emp = employeeService.insert(employee);
+			   return emp;
+		}
+}

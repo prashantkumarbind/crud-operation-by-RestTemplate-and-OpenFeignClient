@@ -1,0 +1,12 @@
+package com.pksoftware.feignclientikbalhotelservice;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+import com.pksoftware.entity.IkbalHotel;
+
+
+@FeignClient(url="http://localhost:8192", value="IkbalHote")
+public interface IkbalHotelService {
+
+		 IkbalHotel insertIkbalHotelData(IkbalHotel hotel);
+}

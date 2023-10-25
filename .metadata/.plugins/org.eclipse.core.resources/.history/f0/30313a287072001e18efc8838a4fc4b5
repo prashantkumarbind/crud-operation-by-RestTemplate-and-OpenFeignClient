@@ -1,0 +1,9 @@
+package com.pksoftware.service;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.pksoftware.entity.Employee;
+
+public interface EmployeeService extends JpaRepository<Employee, Integer>{
+
+}

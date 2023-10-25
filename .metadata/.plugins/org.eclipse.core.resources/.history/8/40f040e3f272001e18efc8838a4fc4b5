@@ -1,0 +1,5 @@
+package com.pksoftware;
+
+public interface IkbalHotelService {
+
+}

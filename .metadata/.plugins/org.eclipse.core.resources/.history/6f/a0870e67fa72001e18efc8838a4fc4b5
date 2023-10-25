@@ -1,0 +1,74 @@
+package com.pksoftware.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pksoftware.entity.FiveStarHotel;
+import com.pksoftware.entity.IkbalHotel;
+import com.pksoftware.service.ManagementService;
+
+
+@RestController
+public class ManagementControler {
+
+		@Autowired
+		ManagementService managementService;
+	
+		@GetMapping("/testing/{name}")
+		public String check(@PathVariable String name) {
+			  return "YOUR INPUT NAME IS THE ::"+name;
+		}
+		
+		@PostMapping("/staremployee")
+		public FiveStarHotel insertFiveStarHotelEmployeeData(@RequestBody FiveStarHotel starHotel) {
+			   FiveStarHotel hotel = managementService.insertFiveStarHotelEmployeeData(starHotel);
+			   return hotel;
+		}
+		
+		@PutMapping("/staremployee")
+		public FiveStarHotel updateFiveStarHotelEmployeeData(@RequestBody FiveStarHotel starHotel) {
+			   FiveStarHotel hotel = managementService.updateFiveStarHotelEmployeeData(starHotel);
+			   return hotel;
+		}
+		
+		@DeleteMapping("/staremployee/{id}")
+		public void  deleteFiveStarHotelEmployeeData(@PathVariable int id) {
+				managementService.deleteFiveStarHotelEmployeeData(id);
+		}
+		
+		
+		@GetMapping("/staremployee")
+		public List<FiveStarHotel> getAllFiveStarHotelData(){
+			   List<FiveStarHotel> list = managementService.getAllFiveStarHotelData();
+			   return list;
+		}
+		
+		@GetMapping("/staremployee/{id}")
+		public FiveStarHotel getByIdFiveStarHotelData(@PathVariable int id) {
+			   FiveStarHotel hotel = managementService.getByIdFiveStarHotelData(id);
+			   return hotel;
+		}
+		
+		//below use of the OpenFeginClient cloud REST API
+		@PostMapping("/ikbalemployee")
+		public IkbalHotel insertIkbalHotelEmployeeData(@RequestBody IkbalHotel hotel) {
+			   IkbalHotel hotel2 = managementService.insertIkbalHotelEmployeeData(hotel);
+			   return hotel2;
+		}
+		
+		@PutMapping("/ikemployee")
+		public IkbalHotel updateIkbalHotelEmployeeData(@RequestBody IkbalHotel hotel) {
+			   IkbalHotel  hotel2 = managementService.updateIkbalHotelEmployeeData(hotel);
+			   return hotel2;
+		}
+		
+}

@@ -1,0 +1,21 @@
+package com.pksoftware.service;
+
+import java.util.List;
+
+import com.pksoftware.entity.FiveStarHotel;
+import com.pksoftware.entity.IkbalHotel;
+
+public interface ManagementService {
+
+		FiveStarHotel insertFiveStarHotelEmployeeData(FiveStarHotel fiveStarHotel);
+		FiveStarHotel updateFiveStarHotelEmployeeData(FiveStarHotel fiveStarHotel);
+		String deleteFiveStarHotelEmployeeData(int id);
+		List<FiveStarHotel> getAllFiveStarHotelData();
+		FiveStarHotel getByIdFiveStarHotelData(int id);
+		
+		//BELOW ALL METHOD FOR Feign client 
+		IkbalHotel insertIkbalHotelEmployeeData(IkbalHotel ikbalHotel);
+		IkbalHotel updateIkbalHotelEmployeeData(IkbalHotel ikbalHotel);
+		void deleteIkbalHotelEmployeeData(int id);
+		List<IkbalHotel> getAllDataOfIkbalHotelEmployee();
+}

@@ -1,0 +1,14 @@
+package com.pksoftware;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class IkbalHotelApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(IkbalHotelApplication.class, args);
+		System.out.println("spring started  ikbal hotel...........");
+	}
+
+}

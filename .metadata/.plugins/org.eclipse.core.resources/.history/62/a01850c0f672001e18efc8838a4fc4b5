@@ -1,0 +1,55 @@
+package com.pksoftware.serviceimpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.pksoftware.entity.FiveStarHotel;
+import com.pksoftware.feignclientikbalhotelservice.IkbalHotelService;
+import com.pksoftware.service.ManagementService;
+
+@Component
+public class ManagementServiceImpl implements ManagementService{
+
+	@Autowired
+	RestTemplate restTemplate;
+	
+	@Autowired
+	IkbalHotelService ikbalHotelService;
+	
+	@Override
+	public FiveStarHotel insertFiveStarHotelEmployeeData(FiveStarHotel fiveStarHotel) {
+		restTemplate.postForObject("http://localhost:8191/staremployee", fiveStarHotel, FiveStarHotel.class);
+		return fiveStarHotel;
+	}
+
+	@Override
+	public FiveStarHotel updateFiveStarHotelEmployeeData(FiveStarHotel fiveStarHotel) {
+		restTemplate.put("http://localhost:8191/staremployee", fiveStarHotel);
+		return fiveStarHotel;
+	}
+
+	@Override
+	public String deleteFiveStarHotelEmployeeData(int id) {
+		restTemplate.delete("http://localhost:8191/staremployee/"+id);
+		return null;
+	}
+
+	@Override
+	public List<FiveStarHotel> getAllFiveStarHotelData() {
+		ResponseEntity<List<FiveStarHotel>> lists = restTemplate.exchange("http://localhost:8191/staremployee", HttpMethod.GET, null, new ParameterizedTypeReference<List<FiveStarHotel>>() {});
+		return lists.getBody();
+	}
+
+	@Override
+	public FiveStarHotel getByIdFiveStarHotelData(int id) {
+		FiveStarHotel hotel = restTemplate.getForObject("http://localhost:8191/staremployee/"+id, FiveStarHotel.class);
+		return hotel;
+	}
+	
+}

@@ -1,0 +1,13 @@
+package com.pksoftware.service;
+
+import java.util.List;
+
+import com.pksoftware.entity.FiveStarHotel;
+
+public interface ManagementService {
+
+		FiveStarHotel insertFiveStarHotelEmployeeData(FiveStarHotel fiveStarHotel);
+		FiveStarHotel updateFiveStarHotelEmployeeData(FiveStarHotel fiveStarHotel);
+		String deleteFiveStarHotelEmployeeData(int id);
+		List<FiveStarHotel> getAll();
+}
